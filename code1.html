@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish Gupta | Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === BASE SETTINGS === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth; /* Smooth scroll for page switching feel */
+            background-color: #0d0d12;
+            color: #ffffff;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* === TYPOGRAPHY & COLORS === */
+        .text-gradient {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gray { color: #a1a1aa; }
+        .text-purple { color: #a855f7; }
+
+        /* === NAVBAR === */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 18, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #8b5cf6;
+        }
+
+        /* === SECTIONS GENERAL === */
+        section {
+            min-height: 100vh; /* Takes full screen height */
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        /* === HERO SECTION (HOME) === */
+        .hero {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #a1a1aa;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .hero-img-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Aesthetic Glowing Effect behind image */
+        .hero-img-box::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            100% { transform: scale(1.05); opacity: 0.6; }
+        }
+
+        .hero-img-box img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8b5cf6;
+            background-color: #1e1e28;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-box {
+            background: #15151e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* === SKILLS SECTION (CARDS) === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: #15151e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* IMPORTANT: Ye overflow hidden hai hover effect ke liye */
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .skill-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* Hidden Hover Content Details */
+        .card-overlay {
+            position: absolute;
+            top: 100%; /* Hidden at bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 13, 18, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: top 0.4s ease; /* Slide up animation */
+            text-align: left;
+        }
+
+        /* Slide up on hover */
+        .skill-card:hover .card-overlay {
+            top: 0;
+        }
+
+        .card-overlay h4 {
+            color: #8b5cf6;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card-overlay ul {
+            list-style: none;
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .card-overlay ul li {
+            margin-bottom: 5px;
+        }
+
+        .overlay-btn {
+            font-size: 12px;
+            color: white;
+            background: #8b5cf6;
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+
+        /* Icons Colors */
+        .fa-html5 { color: #e34f26; }
+        .fa-css3-alt { color: #1572b6; }
+        .fa-js { color: #f7df1e; }
+        .fa-react { color: #61dafb; }
+
+        /* === FOOTER & CONTACT === */
+        footer {
+            background: #09090c;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-left h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            font-size: 24px;
+            color: #a1a1aa;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #8b5cf6;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* === RESPONSIVE DESIGN (Mobile) === */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero { flex-direction: column-reverse; text-align: center; margin-top: 50px; }
+            .hero h1 { font-size: 40px; }
+            footer { flex-direction: column; text-align: center; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#home" class="logo text-gradient">Ashish</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-subtitle">Full Stack Web Developer</span>
+                <h1>Hi, I am <span class="text-gradient">Ashish Gupta</span></h1>
+                <p>I build modern, interactive, and high-performance web applications. Minimalist design mixed with dark aesthetic coding.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+            
+            <div class="hero-img-box">
+               
+                <img src="./image/my img.jpg" alt="" >
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title text-gradient">About Me</h2>
+        <div class="about-box">
+            <p class="text-gray" style="margin-bottom: 20px; font-size: 18px;">
+                Hello! I'm Ashish, a passionate developer with a strong focus on creating clean, efficient, and user-friendly web interfaces.
+            </p>
+            <p class="text-gray" style="font-size: 18px;">
+                I specialize in modern web technologies. I love turning complex problems into simple, beautiful, and intuitive dark-themed designs.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2 class="section-title text-gradient">Technical Skills</h2>
+        
+        <div class="skills-grid">
+            
+            <!-- Skill Card 1 -->
+            <div class="skill-card">
+                <i class="fa-brands fa-html5 skill-icon"></i>
+                <h3>HTML5</h3>
+                <p class="text-gray" style="font-size: 14px;">Structure & Semantic Markup</p>
+                
+                <!-- Hover Hidden Content -->
+                <div class="card-overlay">
+                    <h4>HTML Details</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-check text-purple"></i> Semantic Tags</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> SEO Optimization</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> Web Accessibility</li>
+                    </ul>
+                    <a href="#contact" class="overlay-btn">Hire Me</a>
+                </div>
+            </div>
+
+            <!-- Skill Card 2 -->
+            <div class="skill-card">
+                <i class="fa-brands fa-css3-alt skill-icon"></i>
+                <h3>CSS3</h3>
+                <p class="text-gray" style="font-size: 14px;">Custom Layouts & Styling</p>
+                
+                <div class="card-overlay">
+                    <h4>CSS Details</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-check text-purple"></i> Flexbox & Grid</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> Smooth Animations</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> Responsive Design</li>
+                    </ul>
+                    <a href="#contact" class="overlay-btn">Hire Me</a>
+                </div>
+            </div>
+
+            <!-- Skill Card 3 -->
+            <div class="skill-card">
+                <i class="fa-brands fa-js skill-icon"></i>
+                <h3>JavaScript</h3>
+                <p class="text-gray" style="font-size: 14px;">Logic & Interactions</p>
+                
+                <div class="card-overlay">
+                    <h4>JS Details</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-check text-purple"></i> ES6+ Features</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> DOM Manipulation</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> Async / Await & APIs</li>
+                    </ul>
+                    <a href="#contact" class="overlay-btn">Hire Me</a>
+                </div>
+            </div>
+
+            <!-- Skill Card 4 -->
+            <div class="skill-card">
+                <i class="fa-brands fa-react skill-icon"></i>
+                <h3>React JS</h3>
+                <p class="text-gray" style="font-size: 14px;">UI Components</p>
+                
+                <div class="card-overlay">
+                    <h4>React Details</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-check text-purple"></i> Custom Hooks</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> State Management</li>
+                        <li><i class="fa-solid fa-check text-purple"></i> Fast Rendering</li>
+                    </ul>
+                    <a href="#contact" class="overlay-btn">Hire Me</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact">
+        <div class="footer-left">
+            <h2>Ashish Gupta</h2>
+            <p class="text-gray" style="font-size: 14px;">Contact: <a href="mailto:ashishgupta1148@gmail.com" class="text-purple">ashishgupta1148@gmail.com</a></p>
+        </div>
+        
+      
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61556139900056" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/ashis__h23?stkn=NTZqNWJpM3kxZ2l1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Ashish Gupta. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
